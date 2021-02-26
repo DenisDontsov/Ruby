@@ -1,19 +1,8 @@
-puts "Привет, #{ARGV[0]} есть любимый язык программирования?"
-favourite_language = STDIN.gets.chomp()
-
-if favourite_language == "Ruby" then
-    puts "Пользователь есть подлиза"
-else
-    puts "Cкоро будет ruby"
-end
-
-puts "Cкоро будет ruby" if favourite_language == "C++"
-
-case favourite_language
-when "Ruby"
-    puts "Пользователь есть подлиза"
-when "Python"
-    puts "Cкоро точно будет ruby"
-else
-    puts "Правда?"
-end
+puts "Введите команду ОС:"
+os_command = "`#{STDIN.gets.chomp}`"
+puts "Введите команду Ruby:"
+ruby_command = STDIN.gets.chomp
+puts "Результат выполнения команды ОС:"
+eval("puts #{os_command}")
+puts "Результат выполнения команды Ruby:"
+puts eval(ruby_command)
