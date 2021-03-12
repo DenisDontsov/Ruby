@@ -1,4 +1,4 @@
-puts "Привет, #{ARGV[0]} есть любимый язык программирования?"
+puts "Привет, какой твой любимый язык программирования?"
 favourite_language = STDIN.gets.chomp()
 
 if favourite_language == "Ruby" then
