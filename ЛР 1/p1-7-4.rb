@@ -16,9 +16,9 @@ end
 def coprime x
     num = 2
     counter = 0
-    while num <= x
+    while num < x
         counter += 1 if (gcd(x, num)) != 1
-        num += 1
+        num += 2
     end
     counter
 end
