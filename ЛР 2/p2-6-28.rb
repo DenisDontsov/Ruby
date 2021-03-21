@@ -5,5 +5,4 @@ while input != ""
     a.concat(input.split.map{ |i| Integer(i)})
     input = STDIN.gets.chomp
 end
-max = a.max
 print a.slice!(a.index(a.max)..a.rindex(a.max))
