@@ -10,13 +10,11 @@ i2 = 0
 for i in 0...a.length
     if a[i] == a.max
         i1 = i
-        break
     end
 end
 for i in i1+1...a.length
     if a[i] == a.max
         i2 = i
-        break
     end
 end
 print a.slice!(i1..i2)
