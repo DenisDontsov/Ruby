@@ -28,7 +28,6 @@ def max_digit_non_multiplying_of_3 number_string
     max = -1
     number_string.each_char do |i|
         if Integer(i) % 3 != 0 && max < Integer(i)
-            puts(Integer(i), max)
             max = Integer(i)
         end
     end
