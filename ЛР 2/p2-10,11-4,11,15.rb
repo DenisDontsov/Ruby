@@ -17,7 +17,9 @@ def count_number_less5(str)
 end
 # 11-11
 def count_not_used_latin(str)
-	return str.scan(/[A-z]/).size
+	m = str.scan(/[a-zA-Z]/)
+	b = ("a".."z").to_a + ("A".."Z").to_a
+	return b - m# str.scan(/[A-z]/).size
 end
 # 11-15
 def count_digits_more5(str)
@@ -48,7 +50,7 @@ def main
 	when "3"
 		puts "Введите входную строку:"
 		str = STDIN.gets.chomp.strip
-		puts count_not_used_latin(str)
+		print count_not_used_latin(str)
 	when "4"
 		puts "Введите входную строку:"
 		str = STDIN.gets.chomp.strip
