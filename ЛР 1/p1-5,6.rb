@@ -32,8 +32,10 @@ def product_of_digits number_string
     end
     product
 end
-
-sum_of_digits ARGV[0]
-max_digit ARGV[0]
-min_digit ARGV[0]
-product_of_digits ARGV[0]
+def main
+    sum_of_digits ARGV[0]
+    max_digit ARGV[0]
+    min_digit ARGV[0]
+    product_of_digits ARGV[0]
+end
+main
