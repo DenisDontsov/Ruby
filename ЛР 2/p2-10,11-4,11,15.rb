@@ -1,6 +1,6 @@
-# Чтение содержимого файла
+# Чтение файла
 def readFromFile(filePath)
-	if not File.file?(filePath) # Проверка существования файла
+	if not File.file?(filePath)
 		return nil
 	end
     file = File.new(filePath, "r:UTF-8")
@@ -19,7 +19,7 @@ end
 def count_not_used_latin(str)
 	m = str.scan(/[a-zA-Z]/)
 	b = ("a".."z").to_a + ("A".."Z").to_a
-	return b - m# str.scan(/[A-z]/).size
+	return b - m
 end
 # 11-15
 def count_digits_more5(str)
