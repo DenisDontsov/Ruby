@@ -35,7 +35,6 @@ def max_digit_non_multiplying_of_3 number_string
 end
 
 # Метод 3
-
 def lcd a
     b = 2
     while a % b != 0
@@ -85,5 +84,4 @@ def main
         не делящегося на наименьший делитель исходно числа, и суммы цифр числа, меньших 5."
     end
 end
-
 main
