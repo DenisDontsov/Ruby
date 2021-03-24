@@ -43,10 +43,9 @@ def main
 			puts findDates(text)
 		end
 	when "2"
-		print "Введите путь к файлу с исходным текстом:"
-		filePath = STDIN.gets.chomp.strip
-		text = readFromFile(filePath)
-		puts count_number_less5(text).to_s
+		puts "Введите входную строку:"
+		str = STDIN.gets.chomp.strip
+		puts count_number_less5(str)
 	when "3"
 		puts "Введите входную строку:"
 		str = STDIN.gets.chomp.strip

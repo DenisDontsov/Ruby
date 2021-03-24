@@ -37,5 +37,3 @@ puts sum_of_digits ARGV[0]
 puts max_digit ARGV[0]
 puts min_digit ARGV[0]
 puts product_of_digits ARGV[0]
-
-print Integer.methods
