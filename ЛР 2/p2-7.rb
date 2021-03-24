@@ -75,8 +75,7 @@ def main
         print task6_40(a)
     end
     when "5"
-        puts "Введите число:"
-        n = Integer STDIN.gets.chomp
+        n = a[0]
         print task6_52(n)
     end
     else
