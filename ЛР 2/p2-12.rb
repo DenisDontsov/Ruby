@@ -9,7 +9,7 @@ def readFromFile(filePath)
 end
 # 10
 def findDates(str)
-	return str.scan(/\s+(\d\d?\s+(?:декабря|января|февраля|марта|апреля|мая|июня|июля|августа|сентября|октября|ноября)\s+\d{1,4})/ixu)  
+	return str.scan(/\s?+(\d\d?\s+(?:декабря|января|февраля|марта|апреля|мая|июня|июля|августа|сентября|октября|ноября)\s+\d{1,4})/ixu)  
 end
 # 11-4
 def count_number_less5(str)
@@ -34,7 +34,7 @@ def main
 	answer = STDIN.gets.chomp.strip
 	case answer
 	when "1"
-		print "Введите путь к файлу с исходным текстом:"
+		print "Введите путь к файлу с исходным текстом: "
 		filePath = STDIN.gets.chomp.strip
 		text = readFromFile(filePath)
 		if text == nil
