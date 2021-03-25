@@ -1,15 +1,40 @@
-puts "Введите элементы списка (пустая строка завершает ввод):"
-a = []
-input = STDIN.gets.chomp
-while input != ""
-    a.concat(input.split.map{ |i| Integer(i)})
-    input = STDIN.gets.chomp
+def main
+    puts "Введите количество элементов"
+    n = Integer STDIN.gets.chomp
+    puts "Введите список"
+    list1 = []
+    for i in 0...n
+        item = Integer STDIN.gets.chomp
+        list1[i] = item
+    end
+    list2 = []
+    min = list1[0]
+    for i in 0...n
+        if list1[i] < min
+            min = list1[i]
+        end
+    end
+    max_i = i
+    loop do
+        max = min - 1
+        for i in 0...n
+            if list1[i] > max
+                max = list1[i]
+                max_i = i
+            end
+        end
+        if max == min
+            for i in 0...n
+                if list1[i] == min
+                    list2 << i
+                end
+            end
+            break
+        else
+            list2 << max_i
+            list1[max_i] = min - 1
+        end
+    end
+    print list2
 end
-h = {}
-for i in 0...a.length
-    h[i] = a[i]
-end
-h2 = h.sort_by{|_key, value| value}.reverse.to_h
-h2.each do |key, value|
-    print "#{key} "
-end
+main
