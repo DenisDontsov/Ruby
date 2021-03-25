@@ -50,6 +50,9 @@ end
 list = read_list_from_file ARGV[0]
 puts "Введите способ"
 task = STDIN.gets.chomp
+puts "Введите количество элементов"
+n = Integer STDIN.gets.chomp
+puts "Введите список"
 case task
 when "1"
     list = list1 n
