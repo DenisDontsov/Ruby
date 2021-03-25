@@ -40,8 +40,7 @@ def list5 n
 end
 puts "Введите способ"
 task = STDIN.gets.chomp
-puts "Введите количество элементов"
-n = Integer STDIN.gets.chomp
+n = Integer(ARGV[0])
 puts "Введите список"
 case task
 when "1"
