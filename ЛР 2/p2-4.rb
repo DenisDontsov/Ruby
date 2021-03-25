@@ -47,11 +47,12 @@ def read_list_from_file filename
     file.close
     lines
 end
-list = read_list_from_file ARGV[0]
+puts "Введите имя файла"
+filename = STDIN.gets.chomp
+list = read_list_from_file filename
 puts "Введите способ"
 task = STDIN.gets.chomp
-puts "Введите количество элементов"
-n = Integer STDIN.gets.chomp
+n = Integer(ARGV[0])
 puts "Введите список"
 case task
 when "1"
