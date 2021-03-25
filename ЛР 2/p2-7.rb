@@ -24,17 +24,16 @@ end
 def task6_52 n
     a = []
     Prime.each(n) do |prime|
-    if n % prime == 0
-        l = (Math.log(n, prime)).round
-        if prime**l == n
-            l.times {a << prime}
-        else
-            a << prime
+        if n % prime == 0
+            l = (Math.log(n, prime)).round
+            if prime**l == n
+                l.times {a << prime}
+            else
+                a << prime
+            end
         end
     end
-    return a
-end
-print a
+    a
 end
 
 def main
@@ -51,12 +50,14 @@ def main
     то в итоговом списке число p должно повторятся n раз.
     Результирующий список должен быть упорядочен по возрастанию."
     task = STDIN.gets.chomp
-    puts "Введите элементы списка (пустая строка завершает ввод):"
-    a = []
-    input = STDIN.gets.chomp
-    while input != ""
-        a.concat(input.split.map{ |i| Integer(i)})
+    if (task == "1") ^ (task == "2") ^ (task == "3") ^(task == "4")
+        puts "Введите элементы списка (пустая строка завершает ввод):"
+        a = []
         input = STDIN.gets.chomp
+        while input != ""
+            a.concat(input.split.map{ |i| Integer(i)})
+            input = STDIN.gets.chomp
+        end
     end
     case task
     when "1"
@@ -64,20 +65,16 @@ def main
         h2.each do |key, value|
             print "#{key} "
         end
-    end
     when "2"
         print task6_16(a)
-    end
     when "3"
         print task6_28(a)
-    end
     when "4"
         print task6_40(a)
-    end
     when "5"
-        n = a[0]
+        puts "Введите число"
+        n = Integer STDIN.gets.chomp
         print task6_52(n)
-    end
     else
         puts "Неверный ввод."
     end
