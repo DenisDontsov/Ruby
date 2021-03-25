@@ -15,12 +15,10 @@ def mean_count_letters(line, letters)
 		list_words.each { |word| count += word.scan(/b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|z/).size }
 	count.to_f/list_words.size.to_f
 end
+
 def difference line
 	(mean_count_letters(line, 'consonant') - mean_count_letters(line, 'vowel')).abs
 end
-def cvdMean lines
-	lines.sort { |a, b| difference(a) <=> difference(b) }
-end
 
 lines = readFromFile(ARGV[0])
-puts cvdMean(lines)
+puts lines.sort { |a, b| difference(a) <=> difference(b) }
