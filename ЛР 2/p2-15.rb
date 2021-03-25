@@ -7,15 +7,15 @@ def readFromFile(filePath)
     return file.readlines
 end
 # 2-12
-def sortByLength(lines)
+def task12 (lines)
 	return lines.sort_by {|line| line.length}
 end
 # 2-13
-def sortByWordsNum(lines)
+def task13(lines)
 	return lines.sort_by {|line| line.split.count}
 end
 # 2-14
-def sortByWordsAfterNums(lines)
+def task14(lines)
 	lines.sort_by {|line| line.split.select {|w1, w2| not w1.scan(/\d+/).empty?}.count}
 end
 # 2-15-1
@@ -30,10 +30,10 @@ end
 def difference line
 	(mean_count_letters(line, 'consonant') - mean_count_letters(line, 'vowel')).abs
 end
-def cvdMean lines
+def task15_1 lines
 	lines.sort { |a, b| difference(a) <=> difference(b) }
 end
-# 2-15-4
+# 2-15-5
 $frequencyInAlphabet = {
 	'о' => 0.10983,
 	'е' => 0.08483, 
@@ -111,15 +111,36 @@ end
 def symbolFrequency(symbol, line)
 	return line.count(symbol) / line.length.to_f
 end
-def sortByStandartDeviation(lines)
+def task15_5(lines)
 	return lines.sort_by do |line| 
 	lowerLine = line.downcase
 	standartDeviation(symbolFrequency(mostOftenSymbol(lowerLine), lowerLine), $frequencyInAlphabet[mostOftenSymbol(lowerLine)])
 	end
 end
+# 2-15-7
+def pair_count_difference str
+	count_con_vow = str.scan(/(?:б|в|г|д|ж|з|к|л|м|н|п|р|с|т|ф|х|ц|ч|ш|щ){1}(?:а|е|ё|и|о|у|э|ю|я){1}/).size
+	count_vow_con = str.scan(/(?:а|е|ё|и|о|у|э|ю|я){1}(?:б|в|г|д|ж|з|к|л|м|н|п|р|с|т|ф|х|ц|ч|ш|щ){1}/).size
+	count_con_vow - count_vow_con
+end
+
+def task15_7 list_str
+	list_str.sort { |a, b| pair_count_difference(a) <=> pair_count_difference(b) }
+end
+
 # 2-15-11
+def dis_3 array
+    array.combination(3).to_a.map { |a| a.mean }
+end
+def ascii string
+    string.chars.map { |ch| Integer(ch.ord) }
+end
 def squared_deviation_from array, x
     Math.sqrt(array.map { |i| (i - x) ** 2 }.sum / array.length)
+end
+def task15_11 lines
+	dis_3_max = dis_3(ascii(lines[0])).max
+    puts lines.sort { |s1, s2| squared_deviation_from(ascii(s1), dis_3_max) <=> squared_deviation_from(ascii(s2), dis_3_max) }
 end
 
 lines = readFromFile(ARGV[0])
@@ -138,20 +159,19 @@ puts "Введите номер задачи:
 task = STDIN.gets.chomp
 case task
 when "1"
-    puts sortByLength(lines)
+    puts task12(lines)
 when "2"
-    puts sortByWordsNum(lines)
+    puts task13(lines)
 when "3"
-    puts sortByWordsAfterNums(lines)
+    puts task14(lines)
 when "4"
-    puts cvdMean(lines)
+    puts task15_1(lines)
 when "5"
-    puts sortByStandartDeviation(lines)
+    puts task15_5(lines)
 when "6"
-    puts lines.sort { |s1, s2| difference(s1) <=> difference(s2) }
+    puts task15_7(lines)
 when "7"
-    dis_3_max = dis_3(ascii(lines[0])).max
-    puts lines.sort { |s1, s2| squared_deviation_from(ascii(s1), dis_3_max) <=> squared_deviation_from(ascii(s2), dis_3_max) }
+    puts task11_11(lines)
 else
     puts "Неверный ввод."
 end
