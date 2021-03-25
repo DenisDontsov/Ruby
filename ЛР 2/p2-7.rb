@@ -1,5 +1,17 @@
 require 'prime'
 
+def listInput
+    puts "Введите количество элементов"
+    n = Integer STDIN.gets.chomp
+    puts "Введите список"
+    list = []
+    for i in 0...n
+        item = STDIN.gets.chomp
+        list[i] = item
+    end
+    list
+end
+
 def task6_4 a
     h = {}
     for i in 0...a.length
@@ -47,30 +59,24 @@ def main
     4 - Дан целочисленный массив. Необходимо найти минимальный четный элемент.
     5 - Для введенного числа построить список всех его простых делителей,
     причем если введенное число делится на простое число p в степени n,
-    то в итоговом списке число p должно повторятся n раз.
-    Результирующий список должен быть упорядочен по возрастанию."
+    то в итоговом списке число p должно повторятся n раз."
     task = STDIN.gets.chomp
-    if (task == "1") ^ (task == "2") ^ (task == "3") ^(task == "4")
-        puts "Введите элементы списка (пустая строка завершает ввод):"
-        a = []
-        input = STDIN.gets.chomp
-        while input != ""
-            a.concat(input.split.map{ |i| Integer(i)})
-            input = STDIN.gets.chomp
-        end
-    end
     case task
     when "1"
-        h2 = task6_4(a)
+        list = listInput
+        h2 = task6_4(list)
         h2.each do |key, value|
             print "#{key} "
         end
     when "2"
-        print task6_16(a)
+        list = listInput
+        print task6_16(list)
     when "3"
-        print task6_28(a)
+        list = listInput
+        print task6_28(list)
     when "4"
-        print task6_40(a)
+        list = listInput
+        print task6_40(list)
     when "5"
         puts "Введите число"
         n = Integer STDIN.gets.chomp
