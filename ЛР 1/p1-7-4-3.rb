@@ -1,3 +1,17 @@
+def gcd a, b
+    a, b = b, a if a < b
+    if b == 0 then
+        return a
+    else
+        remainder = a % b
+    end
+    until remainder == 0
+        a, b = b, remainder
+        remainder = a % b
+    end
+    b
+end
+
 def lcd a
     b = 2
     while a % b != 0
