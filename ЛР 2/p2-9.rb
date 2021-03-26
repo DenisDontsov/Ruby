@@ -10,6 +10,9 @@ end
 def amount_of_different_digits n
     a = []
     count = 0
+    while n.index('0') == 0
+        n.slice!(0)
+    end
     n.each_char do |i|
         unless a.include?(i)
             a << i
