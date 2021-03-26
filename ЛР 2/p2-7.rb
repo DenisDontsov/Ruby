@@ -6,7 +6,7 @@ def listInput
     puts "Введите список"
     list = []
     for i in 0...n
-        item = STDIN.gets.chomp
+        item = Integer STDIN.gets.chomp
         list[i] = item
     end
     list
