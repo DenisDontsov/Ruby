@@ -2,7 +2,6 @@ puts "Введите натуральное число:"
 n = STDIN.gets.chomp
 a = []
 count = 0
-f = true
 while n.index('0') == 0
     n.slice!(0)
 end
