@@ -21,12 +21,33 @@ def task6_4 a
 end
 
 def task6_16 a
-    b = a.slice(((a.index(a.max)) + 1)..a.length)
-    return a.slice!(a.index(a.max)..((a.index(a.max)) + (b.index(a.max)) + 1))
+    max1 = a.index(a.max)
+    b = []
+    for i in 0...a.length
+        b << a[i]
+    end
+    b[max1] = a.min
+    max2 = b.index(b.max)
+    if max1 < max2
+        return a.slice!(max1..max2)
+    else
+        return a.slice!(max2..max1)
+    end
 end
 
 def task6_28 a
-    return a.slice!(a.index(a.max)..a.rindex(a.max))
+    max1 = a.index(a.max)
+    b = []
+    for i in 0...a.length
+        b << a[i]
+    end
+    b[max1] = a.min
+    max2 = b.rindex(b.max)
+    if max1 < max2
+        return a.slice!(max1..max2)
+    else
+        return a.slice!(max2..max1)
+    end
 end
 
 def task6_40 a
