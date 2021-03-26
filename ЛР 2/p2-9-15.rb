@@ -1,7 +1,8 @@
 puts "Введите натуральное число:"
-n = STDIN.gets.chomp
+s = Integer STDIN.gets.chomp
 a = []
 count = 0
+n = s.to_s
 n.each_char do |i|
     unless a.include?(i)
         a << i
