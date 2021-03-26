@@ -7,10 +7,16 @@ def main
         item = Integer STDIN.gets.chomp
         list[i] = item
     end
-    max1 = list[0]
-    max1_i = 0
-    max2 = list[0]
-    max2_i = 0
+    min = list[0]
+    for i in 0...n
+        if min > list[i]
+            min = list[i]
+        end
+    end
+    max1 = min
+    max1_i = -1
+    max2 = min
+    max2_i = -1
     i = n - 1
     while (i >= 0)
         if list[i] >= max1
