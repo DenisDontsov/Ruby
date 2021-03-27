@@ -4,8 +4,8 @@ def readFromFile(filePath)
 	if not File.file?(filePath)
 		return nil
 	end
-    file = File.new(filePath, "r:UTF-8")
-    return file.readlines
+	file = File.new(filePath, "r:UTF-8")
+	return file.readlines
 end
 # 2-12
 def task12 (lines)
@@ -131,48 +131,48 @@ end
 
 # 2-15-11
 def dis_3 array
-    array.combination(3).to_a.map { |a| a.mean }
+	array.combination(3).to_a.map { |a| a.mean }
 end
 def ascii string
-    string.chars.map { |ch| Integer(ch.ord) }
+	string.chars.map { |ch| Integer(ch.ord) }
 end
 def squared_deviation_from array, x
-    Math.sqrt(array.map { |i| (i - x) ** 2 }.sum / array.length)
+	Math.sqrt(array.map { |i| (i - x) ** 2 }.sum / array.length)
 end
 def task15_11 lines
 	dis_3_max = dis_3(ascii(lines[0])).max
-    puts lines.sort { |s1, s2| squared_deviation_from(ascii(s1), dis_3_max) <=> squared_deviation_from(ascii(s2), dis_3_max) }
+	puts lines.sort { |s1, s2| squared_deviation_from(ascii(s1), dis_3_max) <=> squared_deviation_from(ascii(s2), dis_3_max) }
 end
 
 lines = readFromFile(ARGV[0])
 puts "Введите номер задачи:
-       1 - Упорядочить по длине строки;
-       2 - Упорядочить по количеству слов;
-       3 - Упорядочить по количеству слов, идущих после чисел;
-       Отсортировать строки в указанном порядке:
-       4 - В порядке увеличения разницы между средним количеством согласных и средним количеством гласных букв в строке;
-       5 - В порядке увеличения квадратичного отклонения частоты встречаемости
-       самого часто встречаемого в строке символа от частоты его встречаемости в текстах на этом алфавите;
-       6 - В порядке увеличения разницы между количеством сочетаний
-       «гласная-согласная» и «согласная-гласная» в строке;
-       7 - В порядке увеличения квадратичного отклонения среднего веса ASCII-кода 
-       символа строки от среднего веса ASCII-кода символа первой строки."
+	   1 - Упорядочить по длине строки;
+	   2 - Упорядочить по количеству слов;
+	   3 - Упорядочить по количеству слов, идущих после чисел;
+	   Отсортировать строки в указанном порядке:
+	   4 - В порядке увеличения разницы между средним количеством согласных и средним количеством гласных букв в строке;
+	   5 - В порядке увеличения квадратичного отклонения частоты встречаемости
+	   самого часто встречаемого в строке символа от частоты его встречаемости в текстах на этом алфавите;
+	   6 - В порядке увеличения разницы между количеством сочетаний
+	   «гласная-согласная» и «согласная-гласная» в строке;
+	   7 - В порядке увеличения квадратичного отклонения среднего веса ASCII-кода 
+	   символа строки от среднего веса ASCII-кода символа первой строки."
 task = STDIN.gets.chomp
 case task
 when "1"
-    puts task12(lines)
+	puts task12(lines)
 when "2"
-    puts task13(lines)
+	puts task13(lines)
 when "3"
-    puts task14(lines)
+	puts task14(lines)
 when "4"
-    puts task15_1(lines)
+	puts task15_1(lines)
 when "5"
-    puts task15_5(lines)
+	puts task15_5(lines)
 when "6"
-    puts task15_7(lines)
+	puts task15_7(lines)
 when "7"
-    puts task11_11(lines)
+	puts task11_11(lines)
 else
-    puts "Неверный ввод."
+	puts "Неверный ввод."
 end
