@@ -1,3 +1,5 @@
+require 'descriptive_statistics'
+
 def readFromFile(filePath)
 	if not File.file?(filePath)
 		return nil
