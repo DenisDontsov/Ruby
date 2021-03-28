@@ -9,4 +9,4 @@ if ARGV.length < 1
 	abort "Введите путь ко входному файлу в качестве аргумента программы"
 end
 lines = readFromFile(ARGV[0])
-puts (lines.sort_by {|line| line.split.select {|w1, w2| not w1.scan(/\d+/).empty?}.count})
+puts (lines.sort_by {|line| line.split.select {|w1, w2| not w1.scan(/^\d+$/).empty?}.count})
