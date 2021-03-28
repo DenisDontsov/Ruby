@@ -17,7 +17,7 @@ def task13(lines)
 end
 # 2-14
 def task14(lines)
-	lines.sort_by {|line| line.split.select {|w1, w2| not w1.scan(/\d+/).empty?}.count}
+	lines.sort_by {|line| line.split.select {|w1, w2| not w1.scan(/^\d+$/).empty?}.count}
 end
 # 2-15-1
 def mean_count_letters(line, letters)
